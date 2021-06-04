@@ -64,15 +64,6 @@ def identify_speaker():
                 writer.writerow([path, name])
             res = get_id_result()
             return jsonify({'PersonName': res})
-    return '''
-            <!doctype html>
-            <title>Upload new File</title>
-            <h1>Upload new File</h1>
-            <form method=post enctype=multipart/form-data>
-              <input type=file name=file>
-              <input type=submit value=Upload>
-            </form>
-            '''
 
 
 @app.route('/addSpeaker', methods=['GET', 'POST'])
@@ -104,17 +95,6 @@ def add_speaker():
                 csv_writer.writerow([path, request.values['person_name']])
                 file.close()
             return ""
-
-    return '''
-        <!doctype html>
-        <title>Upload new File</title>
-        <h1>Upload new File</h1>
-        <form method=post enctype=multipart/form-data>
-          <input type=text name=person_name>
-          <input type=file name=file>
-          <input type=submit value=Upload>
-        </form>
-        '''
 
 
 if __name__ == "__main__":
